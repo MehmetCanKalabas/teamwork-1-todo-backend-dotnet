@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AnotherPolicy",
         policy =>
         {
-            policy.WithOrigins("http://www.contoso.com")
+            policy.WithOrigins("*")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
         });
