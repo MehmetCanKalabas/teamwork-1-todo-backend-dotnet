@@ -3,6 +3,7 @@ using teamwork_1_todo_backend1.Services;
 using Microsoft.AspNetCore.Mvc;
 using teamwork_1_todo_backend1.Dtos;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Cors;
 
 namespace teamwork_1_todo_backend1.Controllers;
 
@@ -19,6 +20,7 @@ public class UserController : ControllerBase
     //public async Task<List<User>> Get() =>
     //    await _todoService.GetAsync();
 
+    [EnableCors("AnotherPolicy")]
     [HttpGet("{userName}", Name = "Getbook")]
     public async Task<ActionResult<User>> Get(string userName)
     {
@@ -32,6 +34,7 @@ public class UserController : ControllerBase
         return todo;
     }
 
+    [EnableCors("AnotherPolicy")]
     [HttpPost("SignInUser")]
     public async Task<User> GetUser([FromForm] UserDto newUser)
     {
@@ -43,6 +46,7 @@ public class UserController : ControllerBase
         return user;
     }
 
+    [EnableCors("AnotherPolicy")]
     [HttpPost("SignUpUser")]
     public async Task<IActionResult> Post([FromForm] UserDto newUser)
     {
@@ -50,6 +54,7 @@ public class UserController : ControllerBase
         return CreatedAtRoute("Getbook", new { userName = newUser.UserName }, newUser);
     }
 
+    [EnableCors("AnotherPolicy")]
     [HttpPost("UpdateTodoList")]
     public bool AddTodoList(ToDoDto data)
     {
@@ -70,6 +75,7 @@ public class UserController : ControllerBase
     //    return NoContent();
     //}
 
+    [EnableCors("AnotherPolicy")]
     [HttpDelete("DeleteUser")]
     public IActionResult Delete([FromQuery] string id)
     {

@@ -5,12 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("Policy1",
-        policy =>
-        {
-            policy.WithOrigins("http://example.com",
-                                "http://www.contoso.com");
-        });
+    //options.AddPolicy("Policy1",
+    //    policy =>
+    //    {
+    //        policy.WithOrigins("http://example.com",
+    //                            "http://www.contoso.com");
+    //    });
 
     options.AddPolicy("AnotherPolicy",
         policy =>
